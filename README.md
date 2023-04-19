@@ -94,7 +94,7 @@ N/A
 Clone this repository to your desired folder:
 
 ```
-git clone https://github.com/AFakhriddinov/Todo-list-app.git
+git clone https://github.com/AFakhriddinov/Scoreboard.git
 ```
 ### Prerequisites
 
@@ -114,11 +114,11 @@ cd Scoreboard
 
 Install project dependencies in this project with:
 
-npm install webpack webpack-cli
-npm install html-webpack-plugin
-npm install style-loader css-loader
-npm install webpack-dev-server
-npm install --save-dev jest
+<p>npm install webpack webpack-cli</p>
+<p>npm install html-webpack-plugin</p>
+<p>npm install style-loader css-loader</p>
+<p>npm install webpack-dev-server</p>
+<p>npm install --save-dev jest</p>
 
 ### Usage
 Use this project in the browsers of mobile phones and desktops
