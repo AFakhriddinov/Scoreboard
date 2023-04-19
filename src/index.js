@@ -1,7 +1,8 @@
-import './style.css';
-import playersData from './modules/data.js';
+import _ from "lodash";
+import "./style.css";
+import playersData from "./modules/data.js";
 
-const scores = document.querySelector('#scores');
+const scores = document.querySelector("#scores");
 
 playersData.forEach((data, i) => {
   if (i % 2 === 1) {
