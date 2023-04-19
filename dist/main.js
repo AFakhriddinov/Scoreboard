@@ -136,7 +136,18 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _modules_data_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/data.js */ \"./src/modules/data.js\");\n\n\n\n\nconst scores = document.querySelector(\"#scores\");\n\n_modules_data_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"].forEach((data, i) => {\n  scores.innerHTML +=\n    i % 2 === 1\n      ? `<div class=\"player-details even\">${_modules_data_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"][i].name} : ${_modules_data_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"][i].score}</div>`\n      : `<div class=\"player-details\">${_modules_data_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"][i].name} : ${_modules_data_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"][i].score}</div>`;\n});\n\n\n//# sourceURL=webpack://scoreboard/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ \"./node_modules/lodash/lodash.js\");\n/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _modules_playerScores_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/playerScores.js */ \"./src/modules/playerScores.js\");\n/* harmony import */ var _modules_addPlayerScores_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/addPlayerScores.js */ \"./src/modules/addPlayerScores.js\");\n\n\n\n\n\n(0,_modules_playerScores_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\nconst refresh = document.querySelector(\".refresh\");\nrefresh.addEventListener(\"click\", () => (0,_modules_playerScores_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])());\n\nconst form = document.querySelector(\".container2-content\");\nform.addEventListener(\"submit\", (event) => {\n  event.preventDefault();\n  const name = document.querySelector(\".name\").value;\n  const score = document.querySelector(\".score\").value;\n  (0,_modules_addPlayerScores_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(name, score);\n  form.reset();\n});\n\n\n//# sourceURL=webpack://scoreboard/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/addPlayerScores.js":
+/*!****************************************!*\
+  !*** ./src/modules/addPlayerScores.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _data_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data.js */ \"./src/modules/data.js\");\n\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (async (user, score) => {\r\n  const response = await fetch(`${_data_js__WEBPACK_IMPORTED_MODULE_0__.baseUrl}games/${_data_js__WEBPACK_IMPORTED_MODULE_0__.gameName}/scores/`, {\r\n    method: \"POST\",\r\n    headers: {\r\n      \"Content-Type\": \"application/json; charset=UTF-8\",\r\n    },\r\n    body: JSON.stringify({\r\n      user,\r\n      score: Number(score),\r\n    }),\r\n  });\r\n\r\n  const outcome = await response.json();\r\n\r\n  return outcome;\r\n});\r\n\n\n//# sourceURL=webpack://scoreboard/./src/modules/addPlayerScores.js?");
 
 /***/ }),
 
@@ -147,7 +158,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var loda
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst playersData = [\n  {\n    name: 'name',\n    score: 100,\n  },\n  {\n    name: 'name',\n    score: 20,\n  },\n  {\n    name: 'name',\n    score: 50,\n  },\n  {\n    name: 'name',\n    score: 80,\n  },\n  {\n    name: 'name',\n    score: 50,\n  },\n  {\n    name: 'name',\n    score: 70,\n  },\n  {\n    name: 'name',\n    score: 30,\n  },\n];\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (playersData);\n\n\n//# sourceURL=webpack://scoreboard/./src/modules/data.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"baseUrl\": () => (/* binding */ baseUrl),\n/* harmony export */   \"gameName\": () => (/* binding */ gameName)\n/* harmony export */ });\nconst baseUrl =\n  \"https://us-central1-js-capstone-backend.cloudfunctions.net/api/\";\nconst gameName = \"GolfClubMatch\";\n\n\n//# sourceURL=webpack://scoreboard/./src/modules/data.js?");
+
+/***/ }),
+
+/***/ "./src/modules/playerScores.js":
+/*!*************************************!*\
+  !*** ./src/modules/playerScores.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _data_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data.js */ \"./src/modules/data.js\");\n\r\n\r\nconst score = document.querySelector(\"#scores\");\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (async () => {\r\n  try {\r\n    const response = await fetch(`${_data_js__WEBPACK_IMPORTED_MODULE_0__.baseUrl}games/${_data_js__WEBPACK_IMPORTED_MODULE_0__.gameName}/scores/`);\r\n    const playerData = await response.json();\r\n    score.innerHTML = \"\";\r\n    playerData.result.forEach((data, i) => {\r\n      score.innerHTML +=\r\n        i % 2 === 1\r\n          ? `<div class=\"player-details even\">${data.user} : ${data.score} </div>`\r\n          : `<div class=\"player-details\">${data.user} : ${data.score} </div>`;\r\n    });\r\n  } catch (error) {\r\n    throw new Error(\"Data could not be fetched\");\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack://scoreboard/./src/modules/playerScores.js?");
 
 /***/ })
 
