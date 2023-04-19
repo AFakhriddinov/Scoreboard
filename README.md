@@ -59,13 +59,16 @@ This project is about creating a leaderboard which shows players name and score.
 
 <details>
   <summary>Server</summary>
+  <ul>
+    <li>N/A</li>
+  </ul>
   
 </details>
 
 <details>
 <summary>Database</summary>
   <ul>
-    <li><a href="#">No database for time being</a></li>
+    <li>N/A</li>
   </ul>
 </details>
 
