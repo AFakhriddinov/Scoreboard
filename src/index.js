@@ -1,12 +1,17 @@
 import _ from 'lodash';
 import './style.css';
-import playersData from './modules/data.js';
+import scores from './modules/playerScores.js';
+import addScore from './modules/addPlayerScores.js';
 
-const scores = document.querySelector('#scores');
+scores();
+const refresh = document.querySelector('.refresh');
+refresh.addEventListener('click', () => scores());
 
-playersData.forEach((data, i) => {
-  scores.innerHTML
-    += i % 2 === 1
-      ? `<div class="player-details even">${playersData[i].name} : ${playersData[i].score}</div>`
-      : `<div class="player-details">${playersData[i].name} : ${playersData[i].score}</div>`;
+const form = document.querySelector('.container2-content');
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const name = document.querySelector('.name').value;
+  const score = document.querySelector('.score').value;
+  addScore(name, score);
+  form.reset();
 });
