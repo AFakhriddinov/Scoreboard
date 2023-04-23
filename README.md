@@ -85,7 +85,7 @@ This project is about creating a leaderboard which shows players name and score.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-## 🚀 [Live Demo](https://afakhriddinov.github.io/Scoreboard/dist/)
+## 🚀 [Live Demo](https://scoreboard-app1.netlify.app/)
 
 
 
