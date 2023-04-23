@@ -7,7 +7,7 @@ scores();
 const refresh = document.querySelector('.refresh');
 refresh.addEventListener('click', () => scores());
 
-const form = document.querySelector('.container2-content');
+const form = document.querySelector('.container2');
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   const name = document.querySelector('.name').value;
